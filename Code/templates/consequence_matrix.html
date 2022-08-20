@@ -1,0 +1,124 @@
+<!-- Write HTML code here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Vulnerabilities</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+  
+<div class="container">
+  <h2 class="text-center"><u>Fillable Consequence matrix</u></h2><br>  
+  <form id="form2" action='consequence_matrix' method="POST">  
+    {%csrf_token%}  
+    <table class="table table-dark table-striped">    
+       <thead>
+	      <tr>   
+			
+            <th>Asset</th>
+			<th>Loss of Income</th>
+			<th>Loss of Reputation</th>
+			<th>Loss of Business</th>
+            
+	      </tr>
+	   </thead>
+    <tbody>
+    <!-- jinja2 Technique -->
+   
+	
+      <tr>
+	  
+	    
+		
+		<td>{{asset}}</td>
+		<td>
+		  <select name="income"> 
+        <option disabled=True selected="selected">--select Consequence--</option>   
+            <option value="low">LOW</option>    
+            <option value="medium">MEDIUM</option>    
+            <option value="high">HIGH</option>    
+          </select>  
+		</td>
+		<td>
+		  <select name="reputation"> 
+        <option disabled=True selected="selected">--select Consequence--</option>   
+            <option value="low">LOW</option>    
+            <option value="medium">MEDIUM</option>    
+            <option value="high" >HIGH</option>    
+          </select>  
+		</td>
+		<td>
+		  <select name="business"> 
+        <option disabled=True selected="selected">--select Consequence--</option>   
+            <option value="low">LOW</option>    
+            <option value="medium">MEDIUM</option>    
+            <option value="high" >HIGH</option>    
+          </select>  
+		</td>
+    
+	  </tr>
+    
+    </tbody>
+  </table>
+  <center>
+  <button type="submit">Create Risk Matrix</button>
+  </center>
+<br>
+ 
+</div> 
+<center><h1>Final Likelihood Matrix</h1>  </center>                  
+  
+    <table class="table table-dark table-striped">    
+       <thead>
+	      <tr>   
+			<th></th><th></th>
+			<th>Loss of Income</th>
+			<th>Loss of Reputation</th>
+			<th>Loss of Business</th>
+      
+	      </tr>
+	   </thead>
+    <tbody>
+        {% if d %}  
+        {% for i in d %}
+        
+        <tr>
+        <th colspan =2>
+		<div name="cve-id" id="cveID">
+		<a href="https://nvd.nist.gov/vuln/detail/{{i.CVE_ID}}" target="_blank">{{i.CVE_ID}}</a>
+		</div>
+		</th>
+        
+        
+        
+          
+            <td>
+              {{i.total_income}}
+            </td>
+            <td>
+              <!-- {{total_business.atIndex0}}   -->
+              {{i.total_reputation}}
+            </td>
+            <td>
+              <!-- {{total_reputation.atIndex0}}  -->
+              {{i.total_business}}
+            </td>
+          </tr>
+          
+        {% endfor %}
+        
+        {% endif %}
+        </tbody>
+      </table>
+      
+                            
+      
+    </div> 
+</body>
+</html>
