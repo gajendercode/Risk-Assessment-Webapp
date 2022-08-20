@@ -5,7 +5,7 @@ Organizations in both the public and private sectors rely on information technol
 Risk analysis and assessment:Risk assessment is the process of determining the likelihood of threats being used against the vulnerabilities present in a system component and drawing conclusions about the resulting impact when a successful compromise occurs.
 
 ## Requirements:
-1.Updated internet browser to run the Html files
+1.Updated internet browser to run the Html files.
 2.Django should be installed in your system to run a local server.
 
 ## Execution:
