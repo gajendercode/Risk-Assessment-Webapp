@@ -1,2 +1,3 @@
 # Risk-Assessment-Webapp
-Webapp for analysing and assessing Risk to an Organization
+## Webapp for analysing and assessing Risk to an Organization-
+Organizations in both the public and private sectors rely on information technology and information systems, specifically industrial control systems, networks, and telecommunication system etc, to successfully carry out their business functions and missions. The information system is under attack from a variety of sources. Threats can severely impact an organization’s operation and mission by exploiting both unknown and known vulnerabilities to breach confidentiality, integrity, and availability. As a result, continuous risk assessment is required to achieve a stable state.
